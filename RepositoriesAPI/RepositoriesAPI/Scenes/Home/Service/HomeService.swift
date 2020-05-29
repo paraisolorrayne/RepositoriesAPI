@@ -6,35 +6,31 @@
 //
 
 import Foundation
-import Alamofire
 
 class HomeService: HomeServiceProtocol {
-    // Call protocol function
-
-    func removeThisFuncName(success: @escaping(_ data: HomeModel) -> (), failure: @escaping() -> ()) {
-
-        let url = ""
-
-        APIManager.request(
-            url,
-            method: .get,
-            parameters: [:],
-            encoding: URLEncoding.default,
-            headers: [:],
-            completion: { data in
-                
-                // mapping data
-                do {
-                    let decoded = try JSONDecoder().decode(HomeModel.self, from: data)
-                    success()
-                } catch _ {
-                    failure()
-                }
-                
-        }) { errorMsg, errorCode in
-            failure()
-        }
-
+    private let client: ClientProtocol
+    private lazy var queue: OperationQueue = {
+        let operation = OperationQueue()
+        operation.maxConcurrentOperationCount = 1
+        operation.qualityOfService = .userInteractive
+        return operation
+    }()
+    
+    init(client: ClientProtocol) {
+        self.client = client
     }
-
+    
+    func getSwiftRepositories(page: Int, completion: @escaping (Result<Repositories>) -> Void) {
+        queue.addOperation { [weak self] in
+            guard let gateway = self else { return }
+            gateway.client.requestData(with: GatewaySetup.search(page: page)) { (result: Result<Repositories>) in
+                switch result {
+                    case let .success(upcomingResponse):
+                        completion(.success(upcomingResponse))
+                    case let .failure(error):
+                        completion(.failure(error))
+                }
+            }
+        }
+    }
 }

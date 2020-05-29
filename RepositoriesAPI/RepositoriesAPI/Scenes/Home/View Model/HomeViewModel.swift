@@ -11,14 +11,16 @@ class HomeViewModel {
 
     private let service: HomeServiceProtocol
 
-    private var model: [HomeModel] = [HomeModel]() {
+    private var model: [Repositories] = [Repositories]() {
         didSet {
             self.count = self.model.count
         }
     }
-
     /// Count your data in model
     var count: Int = 0
+    /// Control page result
+    private var totalPages = 0
+    private var currentPage = 1
 
     //MARK: -- Network checking
 
@@ -50,7 +52,7 @@ class HomeViewModel {
     }
 
     /// Define selected model
-    var selectedObject: HomeModel?
+    var selectedObject: Repositories?
 
     //MARK: -- Closure Collection
     var showAlertClosure: (() -> ())?
@@ -59,7 +61,7 @@ class HomeViewModel {
     var serverErrorStatus: (() -> ())?
     var didGetData: (() -> ())?
 
-    init(withHome serviceProtocol: HomeServiceProtocol = HomeService() ) {
+    init(withHome serviceProtocol: HomeServiceProtocol = HomeService(client: HttpClient()) ) {
         self.service = serviceProtocol
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.networkStatusChanged(_:)), name: NSNotification.Name(rawValue: ReachabilityStatusChangedNotification), object: nil)
@@ -79,28 +81,36 @@ class HomeViewModel {
             self.isDisconnected = true
             self.internetConnectionStatus?()
         case .online:
-            // call your service here
-            self.service.removeThisFuncName(success: { data in
-                
-                self.isLoading = false
-                // self.model = data
-                self.didGetData?()
-                
-            }) { errorMsg, errorCode in
-                if errorCode == 0 {
-                    self.serverErrorStatus?()
-                } else {
-                    self.isLoading = false
-                    self.alertMessage = errorMsg
+            print("online")
+            self.service.getSwiftRepositories(page: currentPage) { [weak self] (result) in
+                switch result {
+                    case let .success(repositories):
+                        print(repositories)
+                        self?.isLoading = false
+                    // self.model = data
+                    // self.didGetData?()
+                    case let .failure(error):
+                        print(error)
                 }
             }
+            // call your service here
+//            self.service.removeThisFuncName(success: { data in
+//
+//                self.isLoading = false
+//                // self.model = data
+//                self.didGetData?()
+//
+//            }) { errorMsg, errorCode in
+//                if errorCode == 0 {
+//                    self.serverErrorStatus?()
+//                } else {
+//                    self.isLoading = false
+//                    self.alertMessage = errorMsg
+//                }
+//            }
         default:
             break
         }
     }
-
-}
-
-extension HomeViewModel {
 
 }

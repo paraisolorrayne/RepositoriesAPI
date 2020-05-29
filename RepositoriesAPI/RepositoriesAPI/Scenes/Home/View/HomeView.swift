@@ -10,9 +10,21 @@ import UIKit
 class HomeView: UIViewController {
 
     // OUTLETS HERE
-
+    @IBOutlet weak var tableView: UITableView!
     // VARIABLES HERE
     var viewModel = HomeViewModel()
+    private let coordinator: CoordinatorProtocol
+    var safeArea: UILayoutGuide!
+    
+    init(coordinator: CoordinatorProtocol) {
+        self.coordinator = coordinator
+        super.init(nibName: String(describing: HomeView.self),
+                   bundle: Bundle.main)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +61,16 @@ class HomeView: UIViewController {
         }
 
     }
-    
+
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        safeArea = view.layoutMarginsGuide
+        let nib = UINib(nibName: "HomeViewTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "\(HomeViewTableViewCell.self)")
+        let nibEmpty = UINib(nibName: "EmptyTableViewCell", bundle: nil)
+        tableView.register(nibEmpty, forCellReuseIdentifier: "\(EmptyTableViewCell.self)")
+    }
 }
 
 

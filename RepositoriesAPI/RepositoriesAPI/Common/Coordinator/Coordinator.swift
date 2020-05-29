@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol UpcomingCoordinatorProtocol {
+protocol CoordinatorProtocol {
     func start()
     var navigationController: UINavigationController { get }
 }
 
-class Coordinator: UpcomingCoordinatorProtocol {
+class Coordinator: CoordinatorProtocol {
     let navigationController: UINavigationController
     
     init(navigationController: UINavigationController) {
@@ -23,6 +23,7 @@ class Coordinator: UpcomingCoordinatorProtocol {
     }
     
     func start() {
-        
+        let viewController = HomeView(coordinator: self)
+        navigationController.pushViewController(viewController, animated: false)
     }
 }

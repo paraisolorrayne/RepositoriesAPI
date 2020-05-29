@@ -1,5 +1,5 @@
-//  
-//  HomeModel.swift
+//
+//  ClientSetup.swift
 //  RepositoriesAPI
 //
 //  Created by Lorrayne Paraiso on 29/05/20.
@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct HomeModel: Codable {
-    
+protocol ClientSetup {
+    var endpoint: String { get }
 }
-
