@@ -14,7 +14,7 @@ enum GatewaySetup: ClientSetup {
     var endpoint: String {
         switch self {
             case .search(let page):
-                return getSwiftRepositories("api.github.com" + "/search/repositories",
+                return getSwiftRepositories("https://api.github.com" + "/search/repositories",
                                                  page: page)
         }
     }

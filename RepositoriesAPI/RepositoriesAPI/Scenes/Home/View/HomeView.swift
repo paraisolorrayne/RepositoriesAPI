@@ -29,6 +29,8 @@ class HomeView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupViewModel()
+        self.setupTableView()
+        loadData()
     }
     
     fileprivate func setupViewModel() {
@@ -57,9 +59,15 @@ class HomeView: UIViewController {
         }
 
         self.viewModel.didGetData = {
-            // update UI after get data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
 
+    }
+
+    func loadData() {
+        self.viewModel.load()
     }
 
     func setupTableView() {

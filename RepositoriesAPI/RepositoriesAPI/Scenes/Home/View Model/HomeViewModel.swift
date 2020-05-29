@@ -11,7 +11,7 @@ class HomeViewModel {
 
     private let service: HomeServiceProtocol
 
-    private var model: [Repositories] = [Repositories]() {
+    var model: [Repositories] = [Repositories]() {
         didSet {
             self.count = self.model.count
         }
@@ -74,8 +74,8 @@ class HomeViewModel {
         self.networkStatus = Reach().connectionStatus()
     }
 
-    //MARK: -- Example Func
-    func exampleBind() {
+    
+    func load() {
         switch networkStatus {
         case .offline:
             self.isDisconnected = true
@@ -85,10 +85,9 @@ class HomeViewModel {
             self.service.getSwiftRepositories(page: currentPage) { [weak self] (result) in
                 switch result {
                     case let .success(repositories):
-                        print(repositories)
                         self?.isLoading = false
-                    // self.model = data
-                    // self.didGetData?()
+                        self?.model = [repositories]
+                        self?.didGetData?()
                     case let .failure(error):
                         print(error)
                 }

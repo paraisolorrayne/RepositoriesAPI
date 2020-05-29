@@ -26,7 +26,7 @@ class HomeViewTableViewCell: UITableViewCell {
         self.repositoryName?.text = item.name
         self.repositoryStars?.text = item.stars.description
         self.ownerName?.text = item.owner.ownerName
-        self.ownerImage?.loadImage(fromString: item.owner.ownerImage, withPlaceholder: #imageLiteral(resourceName: "EmptyState"))
+        //self.ownerImage?.loadImage(fromString: item.owner.ownerImage, withPlaceholder: #imageLiteral(resourceName: "EmptyState"))
     }
     
     //MARK: - Private Functions
