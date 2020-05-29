@@ -17,8 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-Sq-63Q">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-Sq-63Q">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="xSm-Vh-zjP"/>
@@ -31,7 +31,7 @@
                 <constraint firstItem="XIl-Sq-63Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OHR-yy-6lm"/>
                 <constraint firstAttribute="trailing" secondItem="XIl-Sq-63Q" secondAttribute="trailing" id="V1g-zQ-a8m"/>
                 <constraint firstAttribute="bottom" secondItem="XIl-Sq-63Q" secondAttribute="bottom" id="YLJ-8e-rA6"/>
-                <constraint firstItem="XIl-Sq-63Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xs3-On-CcB"/>
+                <constraint firstItem="XIl-Sq-63Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="xs3-On-CcB"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>

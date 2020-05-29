@@ -80,5 +80,3 @@ class HomeView: UIViewController {
         tableView.register(nibEmpty, forCellReuseIdentifier: "\(EmptyTableViewCell.self)")
     }
 }
-
-
