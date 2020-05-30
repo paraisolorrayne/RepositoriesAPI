@@ -7,14 +7,15 @@
 
 import UIKit
 
-class HomeView: UIViewController {
+class HomeView: UIViewController, ActivityIndicatorPresenting {
 
     // OUTLETS HERE
     @IBOutlet weak var tableView: UITableView!
     // VARIABLES HERE
+    private let refreshControl = UIRefreshControl()
     var viewModel = HomeViewModel()
     private let coordinator: CoordinatorProtocol
-    var safeArea: UILayoutGuide!
+    var uiState: UIState = .onboarding
     
     init(coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
@@ -30,32 +31,34 @@ class HomeView: UIViewController {
         super.viewDidLoad()
         self.setupViewModel()
         self.setupTableView()
-        loadData()
+        self.viewModel.isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // Change `2.0` to the desired number of seconds.
+            self.loadData(page: 1)
+        }
+        
     }
     
     fileprivate func setupViewModel() {
-
-        self.viewModel.showAlertClosure = {
-            let alert = self.viewModel.alertMessage ?? ""
-            print(alert)
-        }
-        
         self.viewModel.updateLoadingStatus = {
             if self.viewModel.isLoading {
-                print("LOADING...")
+                self.showActivityIndicator()
             } else {
-                 print("DATA READY")
+                self.hideActivityIndicator()
             }
         }
 
         self.viewModel.internetConnectionStatus = {
-            print("Internet disconnected")
-            // show UI Internet is disconnected
+            DispatchQueue.main.async {
+                self.uiState = .internetConnectionStatus
+                self.tableView.reloadData()
+            }
         }
 
         self.viewModel.serverErrorStatus = {
-            print("Server Error / Unknown Error")
-            // show UI Server is Error
+            DispatchQueue.main.async {
+                self.uiState = .serverErrorStatus
+                self.tableView.reloadData()
+            }
         }
 
         self.viewModel.didGetData = {
@@ -63,20 +66,37 @@ class HomeView: UIViewController {
                 self.tableView.reloadData()
             }
         }
-
     }
-
-    func loadData() {
-        self.viewModel.load()
+    
+    func loadData(page: Int) {
+        self.viewModel.load(language: "swift", from: page)
+        self.refreshControl.endRefreshing()
     }
 
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        safeArea = view.layoutMarginsGuide
-        let nib = UINib(nibName: "HomeViewTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "\(HomeViewTableViewCell.self)")
-        let nibEmpty = UINib(nibName: "EmptyTableViewCell", bundle: nil)
-        tableView.register(nibEmpty, forCellReuseIdentifier: "\(EmptyTableViewCell.self)")
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        let homeNib = UINib(nibName: "HomeViewTableViewCell", bundle: nil)
+        tableView.register(homeNib, forCellReuseIdentifier: "\(HomeViewTableViewCell.self)")
+        let emptyNib = UINib(nibName: "EmptyTableViewCell", bundle: nil)
+        tableView.register(emptyNib, forCellReuseIdentifier: "\(EmptyTableViewCell.self)")
+        let onboardingNib = UINib(nibName: "OnboardingTableViewCell", bundle: nil)
+        tableView.register(onboardingNib, forCellReuseIdentifier: "\(OnboardingTableViewCell.self)")
+        let noConnectionNib = UINib(nibName: "NoConnectionTableViewCell", bundle: nil)
+        tableView.register(noConnectionNib, forCellReuseIdentifier: "\(NoConnectionTableViewCell.self)")
+        let serverErrorNib = UINib(nibName: "ServerErrorTableViewCell", bundle: nil)
+        tableView.register(serverErrorNib, forCellReuseIdentifier: "\(ServerErrorTableViewCell.self)")
     }
+
+    @objc private func refreshData(_ sender: Any) {
+        loadData(page: 1)
+    }
+
 }

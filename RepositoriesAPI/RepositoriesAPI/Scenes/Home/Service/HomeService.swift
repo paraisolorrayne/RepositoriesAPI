@@ -20,10 +20,10 @@ class HomeService: HomeServiceProtocol {
         self.client = client
     }
     
-    func getSwiftRepositories(page: Int, completion: @escaping (Result<Repositories>) -> Void) {
+    func getSwiftRepositories(page: Int, language: String, completion: @escaping (Result<Repositories>) -> Void) {
         queue.addOperation { [weak self] in
             guard let gateway = self else { return }
-            gateway.client.requestData(with: GatewaySetup.search(page: page)) { (result: Result<Repositories>) in
+            gateway.client.requestData(with: GatewaySetup.search(page: page, language: language)) { (result: Result<Repositories>) in
                 switch result {
                     case let .success(upcomingResponse):
                         completion(.success(upcomingResponse))

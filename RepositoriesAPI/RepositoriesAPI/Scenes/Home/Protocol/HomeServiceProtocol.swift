@@ -9,6 +9,6 @@ import Foundation
 
 protocol HomeServiceProtocol {
 
-    func getSwiftRepositories(page: Int, completion: @escaping (Result<Repositories>) -> Void)
+    func getSwiftRepositories(page: Int, language: String, completion: @escaping (Result<Repositories>) -> Void)
 
 }

@@ -40,6 +40,13 @@
 		39634D802481B3FF007EE350 /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D7F2481B3FF007EE350 /* HttpClientTests.swift */; };
 		39634D822481B44D007EE350 /* HttpClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D812481B44D007EE350 /* HttpClientMock.swift */; };
 		39634D842481B5F0007EE350 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D832481B5F0007EE350 /* URLSessionMock.swift */; };
+		39634D8724829502007EE350 /* OnboardingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D8524829502007EE350 /* OnboardingTableViewCell.swift */; };
+		39634D8824829502007EE350 /* OnboardingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39634D8624829502007EE350 /* OnboardingTableViewCell.xib */; };
+		39634D8C24829E97007EE350 /* ActivityIndicatorPresentingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D8B24829E97007EE350 /* ActivityIndicatorPresentingExtension.swift */; };
+		39634D8F2482A1CD007EE350 /* NoConnectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D8D2482A1CD007EE350 /* NoConnectionTableViewCell.swift */; };
+		39634D902482A1CD007EE350 /* NoConnectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39634D8E2482A1CD007EE350 /* NoConnectionTableViewCell.xib */; };
+		39634D952482A267007EE350 /* ServerErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634D932482A267007EE350 /* ServerErrorTableViewCell.swift */; };
+		39634D962482A267007EE350 /* ServerErrorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39634D942482A267007EE350 /* ServerErrorTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +106,13 @@
 		39634D7F2481B3FF007EE350 /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
 		39634D812481B44D007EE350 /* HttpClientMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientMock.swift; sourceTree = "<group>"; };
 		39634D832481B5F0007EE350 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		39634D8524829502007EE350 /* OnboardingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTableViewCell.swift; sourceTree = "<group>"; };
+		39634D8624829502007EE350 /* OnboardingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingTableViewCell.xib; sourceTree = "<group>"; };
+		39634D8B24829E97007EE350 /* ActivityIndicatorPresentingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorPresentingExtension.swift; sourceTree = "<group>"; };
+		39634D8D2482A1CD007EE350 /* NoConnectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoConnectionTableViewCell.swift; sourceTree = "<group>"; };
+		39634D8E2482A1CD007EE350 /* NoConnectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoConnectionTableViewCell.xib; sourceTree = "<group>"; };
+		39634D932482A267007EE350 /* ServerErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerErrorTableViewCell.swift; sourceTree = "<group>"; };
+		39634D942482A267007EE350 /* ServerErrorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServerErrorTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +347,12 @@
 				39634D722481A892007EE350 /* HomeViewTableViewCell.xib */,
 				39634D7A2481AD06007EE350 /* EmptyTableViewCell.swift */,
 				39634D7B2481AD06007EE350 /* EmptyTableViewCell.xib */,
+				39634D8524829502007EE350 /* OnboardingTableViewCell.swift */,
+				39634D8624829502007EE350 /* OnboardingTableViewCell.xib */,
+				39634D8D2482A1CD007EE350 /* NoConnectionTableViewCell.swift */,
+				39634D8E2482A1CD007EE350 /* NoConnectionTableViewCell.xib */,
+				39634D932482A267007EE350 /* ServerErrorTableViewCell.swift */,
+				39634D942482A267007EE350 /* ServerErrorTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -341,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				39634D762481A956007EE350 /* UIImageViewExtension.swift */,
+				39634D8B24829E97007EE350 /* ActivityIndicatorPresentingExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -463,6 +484,9 @@
 				39634D4B24817C06007EE350 /* HomeView.xib in Resources */,
 				39634D7D2481AD06007EE350 /* EmptyTableViewCell.xib in Resources */,
 				39634D742481A892007EE350 /* HomeViewTableViewCell.xib in Resources */,
+				39634D962482A267007EE350 /* ServerErrorTableViewCell.xib in Resources */,
+				39634D8824829502007EE350 /* OnboardingTableViewCell.xib in Resources */,
+				39634D902482A1CD007EE350 /* NoConnectionTableViewCell.xib in Resources */,
 				39634D6D2481A520007EE350 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,13 +515,17 @@
 				39634D63248182B0007EE350 /* GatewaySetup.swift in Sources */,
 				39634D5624817E8D007EE350 /* URLSessionProtocol.swift in Sources */,
 				39634D5C24817ED3007EE350 /* Result.swift in Sources */,
+				39634D8C24829E97007EE350 /* ActivityIndicatorPresentingExtension.swift in Sources */,
 				39634D772481A956007EE350 /* UIImageViewExtension.swift in Sources */,
 				39634D6124817F21007EE350 /* ImageCacher.swift in Sources */,
+				39634D952482A267007EE350 /* ServerErrorTableViewCell.swift in Sources */,
 				39634D7C2481AD06007EE350 /* EmptyTableViewCell.swift in Sources */,
 				39634D5F24817F08007EE350 /* ImageDownloader.swift in Sources */,
 				39634D4C24817C06007EE350 /* HomeService.swift in Sources */,
 				39634D4824817C06007EE350 /* HomeServiceProtocol.swift in Sources */,
+				39634D8F2482A1CD007EE350 /* NoConnectionTableViewCell.swift in Sources */,
 				39634D6624818B08007EE350 /* Reach.swift in Sources */,
+				39634D8724829502007EE350 /* OnboardingTableViewCell.swift in Sources */,
 				39634D31248177F1007EE350 /* AppDelegate.swift in Sources */,
 				39634D5A24817EBD007EE350 /* ClientSetup.swift in Sources */,
 				39634D4D24817C06007EE350 /* HomeViewModel.swift in Sources */,

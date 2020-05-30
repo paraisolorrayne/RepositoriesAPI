@@ -9,7 +9,15 @@ import Foundation
 import UIKit
 
 struct Repositories: Codable {
-    let items: [RepositoriesItems]
+    let incompleteResults : Bool?
+    let items : [RepositoriesItems]
+    let totalCount : Int
+    
+    enum CodingKeys: String, CodingKey {
+        case incompleteResults = "incomplete_results"
+        case items = "items"
+        case totalCount = "total_count"
+    }
 }
 
 struct RepositoriesItems: Codable {

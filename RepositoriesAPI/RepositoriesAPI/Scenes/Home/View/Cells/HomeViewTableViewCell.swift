@@ -18,7 +18,6 @@ class HomeViewTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupView()
     }
     
     //MARK: Public Functions
@@ -26,19 +25,7 @@ class HomeViewTableViewCell: UITableViewCell {
         self.repositoryName?.text = item.name
         self.repositoryStars?.text = item.stars.description
         self.ownerName?.text = item.owner.ownerName
+        ownerImage?.layer.cornerRadius = 8
         //self.ownerImage?.loadImage(fromString: item.owner.ownerImage, withPlaceholder: #imageLiteral(resourceName: "EmptyState"))
     }
-    
-    //MARK: - Private Functions
-    private func setupView() {
-        shadowView?.layer.cornerRadius = 4
-        shadowView?.layer.shadowOpacity = 0.1
-        shadowView?.layer.shadowOffset = CGSize(width: 0, height: 0)
-        shadowView?.layer.shadowRadius = 8
-        shadowView?.layer.shadowColor = UIColor.black.cgColor
-        shadowView?.layer.masksToBounds = false
-        
-        ownerImage?.layer.cornerRadius = 8
-    }
-    
 }
