@@ -95,3 +95,18 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
     }
 
 }
+
+extension HomeView: UIScrollViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.size.height {
+            if (viewModel.currentPage <= viewModel.totalPages) {
+                viewModel.currentPage += 1
+                loadData(page: viewModel.currentPage)
+            }
+        }
+    }
+}

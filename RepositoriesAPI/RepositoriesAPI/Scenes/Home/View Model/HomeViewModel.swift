@@ -13,7 +13,8 @@ class HomeViewModel {
 
     var model: [Repositories] = [Repositories]() {
         didSet {
-            self.count = self.model.count
+            self.count = self.model[0].items.count
+            self.totalPages = self.model[0].totalCount
         }
     }
     /// Count your data in model
@@ -80,7 +81,7 @@ class HomeViewModel {
             self.isLoading = false
             self.internetConnectionStatus?()
         case .online:
-            self.service.getSwiftRepositories(page: 1, language: language) { [weak self] (result) in
+            self.service.getSwiftRepositories(page: page, language: language) { [weak self] (result) in
                 switch result {
                     case let .success(repositories):
                         self?.isLoading = false
@@ -107,5 +108,4 @@ class HomeViewModel {
             break
         }
     }
-
 }

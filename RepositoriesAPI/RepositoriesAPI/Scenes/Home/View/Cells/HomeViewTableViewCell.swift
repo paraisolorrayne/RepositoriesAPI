@@ -22,10 +22,11 @@ class HomeViewTableViewCell: UITableViewCell {
     
     //MARK: Public Functions
     func configure(item: RepositoriesItems) {
+        self.shadowView?.layer.cornerRadius = 16
         self.repositoryName?.text = item.name
         self.repositoryStars?.text = item.stars.description
         self.ownerName?.text = item.owner.ownerName
-        ownerImage?.layer.cornerRadius = 8
-        //self.ownerImage?.loadImage(fromString: item.owner.ownerImage, withPlaceholder: #imageLiteral(resourceName: "EmptyState"))
+        self.ownerImage?.layer.cornerRadius = 12
+        self.ownerImage?.loadImage(fromString: item.owner.ownerImage, withPlaceholder: #imageLiteral(resourceName: "not-found"))
     }
 }

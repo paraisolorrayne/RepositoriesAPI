@@ -92,7 +92,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(HomeViewTableViewCell.self)") as! HomeViewTableViewCell
-        
+
         guard let item = viewModel.model.first?.items[indexPath.row]  else {
             let blank = RepositoriesItems(name: "", stars: 0, owner: RepositoriesOwners(ownerImage: "", ownerName: ""))
             cell.configure(item: blank)
