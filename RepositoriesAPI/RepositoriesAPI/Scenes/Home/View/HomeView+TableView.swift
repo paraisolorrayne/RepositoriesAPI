@@ -51,9 +51,39 @@ extension UITableView {
 }
 
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
+    func setView(state: UIState) {
+        let stateView = UIView(frame: CGRect(x: self.tableView.center.x, y: self.tableView.center.y, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
+        self.tableView.backgroundView = stateView
+        self.tableView.separatorStyle = .none
+        switch state {
+            case .emptyData:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "\(EmptyTableViewCell.self)") as! EmptyTableViewCell
+                cell.frame = self.tableView.bounds
+                stateView.addSubview(cell)
+            case .internetConnectionStatus:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "\(NoConnectionTableViewCell.self)") as! NoConnectionTableViewCell
+                cell.frame = self.tableView.bounds
+                stateView.addSubview(cell)
+            case .onboarding:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "\(OnboardingTableViewCell.self)") as! OnboardingTableViewCell
+                cell.frame = self.tableView.bounds
+                stateView.addSubview(cell)
+                cell.didGetData = {
+                    self.loadData(page: 1)
+            }
+            case .serverErrorStatus:
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "\(ServerErrorTableViewCell.self)") as! ServerErrorTableViewCell
+                cell.frame = self.tableView.bounds
+                stateView.addSubview(cell)
+        }
+        
+        
+    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if viewModel.count == 0 {
-            self.tableView.setEmptyView(state: self.uiState)
+            self.setView(state: self.uiState)
         } else {
             self.tableView.restore()
         }

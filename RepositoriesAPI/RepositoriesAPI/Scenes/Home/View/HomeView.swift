@@ -31,11 +31,6 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
         super.viewDidLoad()
         self.setupViewModel()
         self.setupTableView()
-        self.viewModel.isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // Change `2.0` to the desired number of seconds.
-            self.loadData(page: 1)
-        }
-        
     }
     
     fileprivate func setupViewModel() {
