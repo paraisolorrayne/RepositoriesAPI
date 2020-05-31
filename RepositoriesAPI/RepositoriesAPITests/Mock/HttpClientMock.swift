@@ -22,7 +22,8 @@ class ClientMock: ClientProtocol {
     
     private func generateData<T: Decodable>() -> Result<T> {
         guard
-            let filePath = Bundle.main.path(forResource: "upcoming", ofType: "json")
+            
+            let filePath = Bundle.main.path(forResource: "repositories", ofType: "json")
             else {
                 XCTFail("Could not mock data!")
                 return .failure(ClientError.brokenData)

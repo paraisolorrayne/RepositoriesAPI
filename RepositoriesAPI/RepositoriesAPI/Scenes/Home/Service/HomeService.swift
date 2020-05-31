@@ -25,8 +25,8 @@ class HomeService: HomeServiceProtocol {
             guard let gateway = self else { return }
             gateway.client.requestData(with: GatewaySetup.search(page: page, language: language)) { (result: Result<Repositories>) in
                 switch result {
-                    case let .success(upcomingResponse):
-                        completion(.success(upcomingResponse))
+                    case let .success(repositoryResponse):
+                        completion(.success(repositoryResponse))
                     case let .failure(error):
                         completion(.failure(error))
                 }
