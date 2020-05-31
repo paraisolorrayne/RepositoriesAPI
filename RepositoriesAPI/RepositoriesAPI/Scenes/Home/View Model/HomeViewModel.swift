@@ -89,7 +89,6 @@ class HomeViewModel {
                         self?.didGetData?()
                     case let .failure(error):
                         switch error {
-                            
                             case .urlNotFound,
                                  .authenticationRequired,
                                  .brokenData,
