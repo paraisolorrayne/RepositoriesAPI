@@ -48,7 +48,6 @@ To run some unit tests you have to:
 - Navigation: Coordinator
 
 ```
-<SCENE_NAME>
 ├── Commom
 │   └── Coordinator.swift
 
@@ -85,3 +84,7 @@ Usage in this project
 - HTTP Client
 - URLSessionProtocol
 - Service and Protocol
+
+
+![Alt text](/screenshots/path/to/get-started.png?raw=true "get-started.png")
+![Alt text](/screenshots/path/to/repositories.png?raw=true "get-started.png")
