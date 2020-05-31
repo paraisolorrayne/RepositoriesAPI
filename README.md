@@ -85,6 +85,7 @@ Usage in this project
 - URLSessionProtocol
 - Service and Protocol
 
+### Screenshots
 
-![Alt text](/screenshots/path/to/get-started.png?raw=true "get-started.png")
-![Alt text](/screenshots/path/to/repositories.png?raw=true "get-started.png")
+![Alt text](/https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/get-started.png "get-started.png")
+![Alt text](/https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/repositories.png "get-started.png")
