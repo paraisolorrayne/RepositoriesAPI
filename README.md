@@ -85,6 +85,18 @@ Usage in this project
 - URLSessionProtocol
 - Service and Protocol
 
+### Fastlane Documentation
+
+[Fastlane](https://docs.fastlane.tools) 
+is the easiest way to automate tests, generate coverage reports, beta deployments and releases for your iOS app
+#### Running the Fastlane tests
+
+In the Terminal app execute: ```fastlane tests```
+
+#### Running the Fastlane screenshots
+
+In the Terminal app execute: ```fastlane screenshots```
+
 ### Screenshots
 
 ![alt text](https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/get-started.png?raw=true)
