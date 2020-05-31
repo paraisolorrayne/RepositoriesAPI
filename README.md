@@ -87,5 +87,5 @@ Usage in this project
 
 ### Screenshots
 
-![Alt text](/https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/get-started.png "get-started.png")
-![Alt text](/https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/repositories.png "get-started.png")
+![alt text](https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/get-started.png?raw=true)
+![alt text](https://github.com/paraisolorrayne/RepositoriesAPI/blob/develop/screenshots/repositories.png?raw=true)
