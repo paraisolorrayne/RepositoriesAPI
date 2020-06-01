@@ -26,7 +26,6 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func setView(state: UIState) {
         let stateView = UIView(frame: CGRect(x: self.tableView.center.x, y: self.tableView.center.y, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
         self.tableView.backgroundView = stateView
-        self.tableView.separatorStyle = .none
         switch state {
             case .emptyData:
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "\(EmptyTableViewCell.self)") as! EmptyTableViewCell
@@ -60,6 +59,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.refreshControl.isEnabled = true
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(HomeViewTableViewCell.self)") as! HomeViewTableViewCell
 
         guard let item = viewModel.model.first?.items[indexPath.row]  else {

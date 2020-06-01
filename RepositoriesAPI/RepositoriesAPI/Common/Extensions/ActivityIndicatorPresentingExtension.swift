@@ -17,6 +17,9 @@ extension ActivityIndicatorPresenting where Self: UIViewController {
     func showActivityIndicator() {
         guard !view.subviews.contains(where: { $0 is UIActivityIndicatorView }) else { return }
         let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.color = .systemIndigo
+        activityIndicator.center = CGPoint(x: view.center.x, y: (view.center.y - 80))
         view.addSubview(activityIndicator)
         activityIndicator.startAnimating()
     }

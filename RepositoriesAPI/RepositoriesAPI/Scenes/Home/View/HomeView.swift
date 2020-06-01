@@ -12,7 +12,7 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
     // OUTLETS HERE
     @IBOutlet weak var tableView: UITableView!
     // VARIABLES HERE
-    private let refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
     var viewModel = HomeViewModel()
     private let coordinator: CoordinatorProtocol
     var uiState: UIState = .onboarding
@@ -71,6 +71,7 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.separatorStyle = .none
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshControl
         } else {
@@ -78,6 +79,7 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
         }
         // Configure Refresh Control
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        refreshControl.isEnabled = false
         let homeNib = UINib(nibName: "HomeViewTableViewCell", bundle: nil)
         tableView.register(homeNib, forCellReuseIdentifier: "\(HomeViewTableViewCell.self)")
         let emptyNib = UINib(nibName: "EmptyTableViewCell", bundle: nil)
