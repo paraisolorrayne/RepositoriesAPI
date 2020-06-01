@@ -53,6 +53,14 @@
 		39634DA824842BE6007EE350 /* repositories.json in Resources */ = {isa = PBXBuildFile; fileRef = 39634DA32482F467007EE350 /* repositories.json */; };
 		39634DAB24842CAC007EE350 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DAA24842CAC007EE350 /* HomeViewModelTests.swift */; };
 		39634DAD2484300B007EE350 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DAC2484300B007EE350 /* SnapshotHelper.swift */; };
+		39634DB124854C6F007EE350 /* DetailServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DB024854C6F007EE350 /* DetailServiceProtocol.swift */; };
+		39634DB724854F2D007EE350 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DB624854F2D007EE350 /* DetailViewModel.swift */; };
+		39634DB924854F4A007EE350 /* DetailGatewaySetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DB824854F4A007EE350 /* DetailGatewaySetup.swift */; };
+		39634DBB24854F69007EE350 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DBA24854F69007EE350 /* DetailService.swift */; };
+		39634DBE24854FA2007EE350 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DBC24854FA2007EE350 /* DetailView.swift */; };
+		39634DBF24854FA2007EE350 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39634DBD24854FA2007EE350 /* DetailView.xib */; };
+		39634DC1248550F6007EE350 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DC0248550F6007EE350 /* DetailModel.swift */; };
+		39634DC3248550FF007EE350 /* DetailPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DC2248550FF007EE350 /* DetailPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +132,14 @@
 		39634DA32482F467007EE350 /* repositories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = repositories.json; sourceTree = "<group>"; };
 		39634DAA24842CAC007EE350 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		39634DAC2484300B007EE350 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		39634DB024854C6F007EE350 /* DetailServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailServiceProtocol.swift; sourceTree = "<group>"; };
+		39634DB624854F2D007EE350 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		39634DB824854F4A007EE350 /* DetailGatewaySetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGatewaySetup.swift; sourceTree = "<group>"; };
+		39634DBA24854F69007EE350 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
+		39634DBC24854FA2007EE350 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		39634DBD24854FA2007EE350 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
+		39634DC0248550F6007EE350 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		39634DC2248550FF007EE350 /* DetailPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +224,7 @@
 		39634D23248177F1007EE350 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				39634DAE24854C52007EE350 /* Detail */,
 				39634D3C24817C06007EE350 /* Home */,
 			);
 			path = Scenes;
@@ -440,6 +457,61 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		39634DAE24854C52007EE350 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				39634DB524854F1F007EE350 /* View Model */,
+				39634DB424854F18007EE350 /* Service */,
+				39634DB324854F12007EE350 /* View */,
+				39634DB224854EFC007EE350 /* Model */,
+				39634DAF24854C5D007EE350 /* Protocol */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		39634DAF24854C5D007EE350 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				39634DB024854C6F007EE350 /* DetailServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		39634DB224854EFC007EE350 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				39634DC0248550F6007EE350 /* DetailModel.swift */,
+				39634DC2248550FF007EE350 /* DetailPath.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39634DB324854F12007EE350 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				39634DBC24854FA2007EE350 /* DetailView.swift */,
+				39634DBD24854FA2007EE350 /* DetailView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39634DB424854F18007EE350 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				39634DB824854F4A007EE350 /* DetailGatewaySetup.swift */,
+				39634DBA24854F69007EE350 /* DetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		39634DB524854F1F007EE350 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				39634DB624854F2D007EE350 /* DetailViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -553,6 +625,7 @@
 				39634D902482A1CD007EE350 /* NoConnectionTableViewCell.xib in Resources */,
 				39634D6D2481A520007EE350 /* Main.storyboard in Resources */,
 				39634DA824842BE6007EE350 /* repositories.json in Resources */,
+				39634DBF24854FA2007EE350 /* DetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,25 +652,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				39634D63248182B0007EE350 /* GatewaySetup.swift in Sources */,
+				39634DB924854F4A007EE350 /* DetailGatewaySetup.swift in Sources */,
+				39634DC1248550F6007EE350 /* DetailModel.swift in Sources */,
 				39634D5624817E8D007EE350 /* URLSessionProtocol.swift in Sources */,
 				39634D5C24817ED3007EE350 /* Result.swift in Sources */,
 				39634D8C24829E97007EE350 /* ActivityIndicatorPresentingExtension.swift in Sources */,
+				39634DB724854F2D007EE350 /* DetailViewModel.swift in Sources */,
 				39634D772481A956007EE350 /* UIImageViewExtension.swift in Sources */,
 				39634D6124817F21007EE350 /* ImageCacher.swift in Sources */,
 				39634D952482A267007EE350 /* ServerErrorTableViewCell.swift in Sources */,
 				39634D7C2481AD06007EE350 /* EmptyTableViewCell.swift in Sources */,
+				39634DC3248550FF007EE350 /* DetailPath.swift in Sources */,
 				39634D5F24817F08007EE350 /* ImageDownloader.swift in Sources */,
 				39634D4C24817C06007EE350 /* HomeService.swift in Sources */,
 				39634D4824817C06007EE350 /* HomeServiceProtocol.swift in Sources */,
+				39634DBE24854FA2007EE350 /* DetailView.swift in Sources */,
 				39634D8F2482A1CD007EE350 /* NoConnectionTableViewCell.swift in Sources */,
 				39634D6624818B08007EE350 /* Reach.swift in Sources */,
 				39634D8724829502007EE350 /* OnboardingTableViewCell.swift in Sources */,
 				39634D31248177F1007EE350 /* AppDelegate.swift in Sources */,
 				39634D5A24817EBD007EE350 /* ClientSetup.swift in Sources */,
+				39634DBB24854F69007EE350 /* DetailService.swift in Sources */,
 				39634D4D24817C06007EE350 /* HomeViewModel.swift in Sources */,
 				39634D33248177F1007EE350 /* SceneDelegate.swift in Sources */,
 				39634D792481AC0E007EE350 /* HomeView+TableView.swift in Sources */,
 				39634D4A24817C06007EE350 /* HomeView.swift in Sources */,
+				39634DB124854C6F007EE350 /* DetailServiceProtocol.swift in Sources */,
 				39634D5824817EA4007EE350 /* HttpClient.swift in Sources */,
 				39634D5424817E6E007EE350 /* ClientError.swift in Sources */,
 				39634D4924817C06007EE350 /* RepositoriesModel.swift in Sources */,

@@ -15,7 +15,7 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
     private let refreshControl = UIRefreshControl()
     let searchController = UISearchController(searchResultsController: nil)
     var viewModel = HomeViewModel()
-    private let coordinator: CoordinatorProtocol
+    let coordinator: CoordinatorProtocol
     var uiState: UIState = .onboarding
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true

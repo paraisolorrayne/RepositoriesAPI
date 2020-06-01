@@ -9,6 +9,7 @@ import UIKit
 
 protocol CoordinatorProtocol {
     func start()
+    func navigateToRepositoriesDetail()
     var navigationController: UINavigationController { get }
 }
 
@@ -25,5 +26,13 @@ class Coordinator: CoordinatorProtocol {
     func start() {
         let viewController = HomeView(coordinator: self)
         navigationController.pushViewController(viewController, animated: false)
+    }
+
+//    func repositorieDetails(viewModel: MovieViewModel) {
+//        let viewController = MovieViewController(viewModel: viewModel)
+//        navigationController.pushViewController(viewController, animated: true)
+//    }
+    func navigateToRepositoriesDetail() {
+        
     }
 }

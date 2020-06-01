@@ -64,14 +64,23 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(HomeViewTableViewCell.self)") as! HomeViewTableViewCell
 
         guard let item = viewModel.model.first?.items[indexPath.row]  else {
-            let blank = RepositoriesItems(name: "", stars: 0, owner: RepositoriesOwners(ownerImage: "", ownerName: ""))
+            let blank = RepositoriesItems(name: "", fullName: "", stars: 0, owner: RepositoriesOwners(ownerImage: "", ownerName: ""))
             cell.configure(item: blank)
             return cell
         }
         cell.configure(item: item)
         return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let full_name = viewModel.model.first?.items[indexPath.row].fullName ?? ""
+        let repoName = viewModel.model.first?.items[indexPath.row].name ?? ""
+        tableView.tableHeaderView = nil
+        coordinator.navigateToRepositoriesDetail()
+        //self.delegate?.navigateToNextPage(fullName: full_name, repoName: repoName)
+        
+    }
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
