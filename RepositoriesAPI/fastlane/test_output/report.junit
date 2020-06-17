@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='RepositoriesAPITests.xctest' tests='17' failures='0'>
+  <testsuite name='RepositoriesAPIUITests.RepositoriesAPIUITests' tests='2' failures='0'>
+    <testcase classname='RepositoriesAPIUITests.RepositoriesAPIUITests' name='testExample' time='2.051'/>
+    <testcase classname='RepositoriesAPIUITests.RepositoriesAPIUITests' name='testLaunchPerformance' time='32.836'/>
+  </testsuite>
+  <testsuite name='RepositoriesAPITests.CoordinatorTests' tests='1' failures='0'>
+    <testcase classname='RepositoriesAPITests.CoordinatorTests' name='test_start_thenNavigationPushUpcomingMoviesViewController' time='0.003'/>
+  </testsuite>
+  <testsuite name='RepositoriesAPITests.GatewaySetupTests' tests='1' failures='0'>
+    <testcase classname='RepositoriesAPITests.GatewaySetupTests' name='testGetSwiftRepositoriesEndpoint' time='0.001'/>
+  </testsuite>
+  <testsuite name='RepositoriesAPITests.HomeServiceTests' tests='2' failures='0'>
+    <testcase classname='RepositoriesAPITests.HomeServiceTests' name='test_getSwiftRepositories_whenClientReturnsFailure' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HomeServiceTests' name='test_getSwiftRepositories_whenClientReturnsSucess' time='0.004'/>
+  </testsuite>
+  <testsuite name='RepositoriesAPITests.HttpClientTests' tests='9' failures='0'>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveErrorFromDataTask_thenReturnUnknownError' time='0.003'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveInvalidData_thenReturnBrokenDataError' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveInvalidHttpResponse_thenReturnInvalidHttpResponseError' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveInvalidURL_thenReturnUrlNotFound' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveStatusCode403_thenReturnAuthenticationRequiredError' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveStatusCode404_thenReturnAuthenticationRequiredError' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveStatusCode500_thenReturnAuthenticationRequiredError' time='0.001'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenReceiveUnknownStatusCode_thenReturnAuthenticationRequiredError' time='0.000'/>
+    <testcase classname='RepositoriesAPITests.HttpClientTests' name='test_requestData_whenResponseCantBeParsed_thenReturnCouldNotParseObjectError' time='0.001'/>
+  </testsuite>
+  <testsuite name='RepositoriesAPITests.RepositoriesAPITests' tests='2' failures='0'>
+    <testcase classname='RepositoriesAPITests.RepositoriesAPITests' name='testExample' time='0.000'/>
+    <testcase classname='RepositoriesAPITests.RepositoriesAPITests' name='testPerformanceExample' time='0.270'/>
+  </testsuite>
+</testsuites>
