@@ -76,9 +76,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
         let full_name = viewModel.model.first?.items[indexPath.row].description ?? ""
         let repoName = viewModel.model.first?.items[indexPath.row].name ?? ""
         tableView.tableHeaderView = nil
-        coordinator.navigateToRepositoriesDetail()
-        //self.delegate?.navigateToNextPage(fullName: full_name, repoName: repoName)
-        
+        self.coordinator.navigateToRepositoriesDetail(fullName: full_name, repoName: repoName)
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

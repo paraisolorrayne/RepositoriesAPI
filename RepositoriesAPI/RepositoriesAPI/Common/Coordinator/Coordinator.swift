@@ -9,7 +9,7 @@ import UIKit
 
 protocol CoordinatorProtocol {
     func start()
-    func navigateToRepositoriesDetail()
+    func navigateToRepositoriesDetail(fullName: String, repoName: String)
     var navigationController: UINavigationController { get }
 }
 
@@ -28,11 +28,9 @@ class Coordinator: CoordinatorProtocol {
         navigationController.pushViewController(viewController, animated: false)
     }
 
-//    func repositorieDetails(viewModel: MovieViewModel) {
-//        let viewController = MovieViewController(viewModel: viewModel)
-//        navigationController.pushViewController(viewController, animated: true)
-//    }
-    func navigateToRepositoriesDetail() {
-        
+    func navigateToRepositoriesDetail(fullName: String, repoName: String) {
+        if let viewController = DetailView(fullName: fullName, repoName: repoName) {
+            navigationController.pushViewController(viewController, animated: false)
+        }
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+protocol DetailServiceProtocol {
+    
+    func getReadmeRepositories(fullName: String, completion: @escaping (Result<DetailModel>) -> Void)
+    
+}

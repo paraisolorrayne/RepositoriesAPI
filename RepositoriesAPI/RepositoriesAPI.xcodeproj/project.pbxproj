@@ -61,6 +61,7 @@
 		39634DBF24854FA2007EE350 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39634DBD24854FA2007EE350 /* DetailView.xib */; };
 		39634DC1248550F6007EE350 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DC0248550F6007EE350 /* DetailModel.swift */; };
 		39634DC3248550FF007EE350 /* DetailPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DC2248550FF007EE350 /* DetailPath.swift */; };
+		39634DC724A129D3007EE350 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39634DC624A129D3007EE350 /* MarkdownView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 		39634DBD24854FA2007EE350 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		39634DC0248550F6007EE350 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		39634DC2248550FF007EE350 /* DetailPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPath.swift; sourceTree = "<group>"; };
+		39634DC624A129D3007EE350 /* MarkdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		39634D2C248177F1007EE350 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				39634DC424A129A4007EE350 /* Library */,
 				39634D752481A939007EE350 /* Extensions */,
 				39634D6424818315007EE350 /* Constant */,
 				39634D5124817E45007EE350 /* Network */,
@@ -512,6 +515,22 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		39634DC424A129A4007EE350 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				39634DC524A129B7007EE350 /* MarkdownView */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		39634DC524A129B7007EE350 /* MarkdownView */ = {
+			isa = PBXGroup;
+			children = (
+				39634DC624A129D3007EE350 /* MarkdownView.swift */,
+			);
+			path = MarkdownView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -660,6 +679,7 @@
 				39634DB724854F2D007EE350 /* DetailViewModel.swift in Sources */,
 				39634D772481A956007EE350 /* UIImageViewExtension.swift in Sources */,
 				39634D6124817F21007EE350 /* ImageCacher.swift in Sources */,
+				39634DC724A129D3007EE350 /* MarkdownView.swift in Sources */,
 				39634D952482A267007EE350 /* ServerErrorTableViewCell.swift in Sources */,
 				39634D7C2481AD06007EE350 /* EmptyTableViewCell.swift in Sources */,
 				39634DC3248550FF007EE350 /* DetailPath.swift in Sources */,
