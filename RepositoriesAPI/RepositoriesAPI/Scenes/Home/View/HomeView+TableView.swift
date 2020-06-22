@@ -64,7 +64,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(HomeViewTableViewCell.self)") as! HomeViewTableViewCell
 
         guard let item = viewModel.model.first?.items[indexPath.row]  else {
-            let blank = RepositoriesItems(name: "", description: "", stars: 0, fork: 0, owner: RepositoriesOwners(ownerImage: "", ownerName: ""))
+            let blank = RepositoriesItems(name: "", fullName: "", description: "", stars: 0, fork: 0, owner: RepositoriesOwners(ownerImage: "", ownerName: ""))
             cell.configure(item: blank)
             return cell
         }
@@ -73,7 +73,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let full_name = viewModel.model.first?.items[indexPath.row].description ?? ""
+        let full_name = viewModel.model.first?.items[indexPath.row].fullName ?? ""
         let repoName = viewModel.model.first?.items[indexPath.row].name ?? ""
         tableView.tableHeaderView = nil
         self.coordinator.navigateToRepositoriesDetail(fullName: full_name, repoName: repoName)

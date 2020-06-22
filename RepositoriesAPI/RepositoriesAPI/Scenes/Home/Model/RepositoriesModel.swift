@@ -22,6 +22,7 @@ struct Repositories: Codable {
 
 struct RepositoriesItems: Codable {
     let name: String
+    let fullName: String
     let description: String
     let stars: Int
     let fork: Int
@@ -31,6 +32,7 @@ struct RepositoriesItems: Codable {
         case name, owner, description
         case fork = "forks_count"
         case stars = "stargazers_count"
+        case fullName = "full_name"
     }
 }
 

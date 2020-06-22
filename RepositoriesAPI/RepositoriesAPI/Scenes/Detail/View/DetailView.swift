@@ -62,7 +62,7 @@ class DetailView: UIViewController {
             }
         }
     }
-
+    
     fileprivate func renderReadme(base64String: String) {
         let decodedData = Data(base64Encoded: base64String, options: .ignoreUnknownCharacters)!
         let decodedString = String(data: decodedData, encoding: .utf8)!
@@ -73,7 +73,7 @@ class DetailView: UIViewController {
         // called when user touch link
         markDownView.onTouchLink = { [weak self] request in
             guard let url = request.url else { return false }
-
+            
             if url.scheme == "file" {
                 return false
             } else if url.scheme == "https" {
@@ -87,3 +87,7 @@ class DetailView: UIViewController {
     }
 
 }
+
+
+
+
