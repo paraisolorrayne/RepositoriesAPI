@@ -40,6 +40,7 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
         self.setupViewModel()
         self.setupTableView()
         self.setupUIScrollViewDelegate()
+        self.title = "Repositórios"
     }
     
     fileprivate func setupViewModel() {
