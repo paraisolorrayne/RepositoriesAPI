@@ -22,13 +22,14 @@ struct Repositories: Codable {
 
 struct RepositoriesItems: Codable {
     let name: String
-    let fullName: String
+    let description: String
     let stars: Int
+    let fork: Int
     let owner: RepositoriesOwners
     
     enum CodingKeys: String, CodingKey {
-        case name, owner
-        case fullName = "full_name"
+        case name, owner, description
+        case fork = "forks_count"
         case stars = "stargazers_count"
     }
 }

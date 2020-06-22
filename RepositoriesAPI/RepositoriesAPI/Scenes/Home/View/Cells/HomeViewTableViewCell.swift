@@ -14,6 +14,7 @@ class HomeViewTableViewCell: UITableViewCell {
     @IBOutlet weak var repositoryName: UILabel?
     @IBOutlet weak var ownerName: UILabel?
     @IBOutlet weak var repositoryStars: UILabel?
+    @IBOutlet weak var repositoryFork: UILabel?
     @IBOutlet weak var ownerImage: UIImageView?
     
     override func awakeFromNib() {
@@ -25,7 +26,8 @@ class HomeViewTableViewCell: UITableViewCell {
         self.shadowView?.layer.cornerRadius = 16
         self.repositoryName?.text = item.name
         self.repositoryStars?.text = item.stars.description
-        self.ownerName?.text = item.owner.ownerName
+        self.repositoryFork?.text = item.fork.description
+        self.ownerName?.text = item.description
         self.ownerImage?.layer.cornerRadius = 12
         self.ownerImage?.loadImage(fromString: item.owner.ownerImage, withPlaceholder: #imageLiteral(resourceName: "not-found"))
     }
