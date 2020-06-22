@@ -12,10 +12,18 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
     // OUTLETS HERE
     @IBOutlet weak var tableView: UITableView!
     // VARIABLES HERE
-    let refreshControl = UIRefreshControl()
+    private let refreshControl = UIRefreshControl()
+    let searchController = UISearchController(searchResultsController: nil)
     var viewModel = HomeViewModel()
     private let coordinator: CoordinatorProtocol
     var uiState: UIState = .onboarding
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var searchTerm: String {
+        return searchController.searchBar.text ?? ""
+    }
     
     init(coordinator: CoordinatorProtocol) {
         self.coordinator = coordinator
@@ -31,6 +39,8 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
         super.viewDidLoad()
         self.setupViewModel()
         self.setupTableView()
+        self.setupUIScrollViewDelegate()
+        self.title = "Repositórios"
     }
     
     fileprivate func setupViewModel() {
@@ -63,8 +73,8 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
         }
     }
     
-    func loadData(page: Int) {
-        self.viewModel.load(language: "swift", from: page)
+    func loadData(page: Int, language: String) {
+        self.viewModel.load(language: language, from: page)
         self.refreshControl.endRefreshing()
     }
 
@@ -92,8 +102,16 @@ class HomeView: UIViewController, ActivityIndicatorPresenting {
         tableView.register(serverErrorNib, forCellReuseIdentifier: "\(ServerErrorTableViewCell.self)")
     }
 
+    func setupUIScrollViewDelegate() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search repositories"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+
     @objc private func refreshData(_ sender: Any) {
-        loadData(page: 1)
+        loadData(page: 1, language: searchTerm)
     }
 
 }
@@ -107,8 +125,14 @@ extension HomeView: UIScrollViewDelegate {
         if offsetY > contentHeight - scrollView.frame.size.height {
             if (viewModel.currentPage <= viewModel.totalPages) {
                 viewModel.currentPage += 1
-                loadData(page: viewModel.currentPage)
+                loadData(page: viewModel.currentPage, language: searchTerm)
             }
         }
+    }
+}
+
+extension HomeView: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        loadData(page: 1, language: searchTerm)
     }
 }

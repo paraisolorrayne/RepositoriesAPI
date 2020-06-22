@@ -24,6 +24,7 @@ extension UITableView {
 
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func setView(state: UIState) {
+        self.searchController.searchBar.isHidden = true
         let stateView = UIView(frame: CGRect(x: self.tableView.center.x, y: self.tableView.center.y, width: self.tableView.bounds.size.width, height: self.tableView.bounds.size.height))
         self.tableView.backgroundView = stateView
         switch state {
@@ -40,7 +41,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
                 cell.frame = self.tableView.bounds
                 stateView.addSubview(cell)
                 cell.didGetData = {
-                    self.loadData(page: 1)
+                    self.loadData(page: 1, language: self.searchTerm)
             }
             case .serverErrorStatus:
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "\(ServerErrorTableViewCell.self)") as! ServerErrorTableViewCell
@@ -59,7 +60,7 @@ extension HomeView: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        self.refreshControl.isEnabled = true
+        self.searchController.searchBar.isHidden = false
         let cell: HomeViewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(HomeViewTableViewCell.self)") as! HomeViewTableViewCell
 
         guard let item = viewModel.model.first?.items[indexPath.row]  else {
